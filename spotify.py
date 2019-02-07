@@ -34,7 +34,7 @@ def create_playlist(spot_obj, username, artists, week):
     Create a playlist with top songs from artists
     '''
     if get_playlist_id(spot_obj, username, week) is None:
-        new_playlist = spot_obj.user_playlist_create( #pylint: disable=unused-variable
+        new_playlist = spot_obj.user_playlist_create(  # pylint: disable=unused-variable
             username,
             week,
         )

@@ -4,6 +4,7 @@ random util functions
 import datetime
 from datetime import date
 
+
 def get_week():
     '''
     get week string for playlist creation
