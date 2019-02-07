@@ -1,6 +1,6 @@
 # 🎶 What's the scene?
 
-Automated spotify playlist creation based on who's playing in your town using 
+Automated Spotify playlist creation based on who's playing in your town using 
 Spotify and Songkick APIs.
 
 This project is currently a work in progress.
