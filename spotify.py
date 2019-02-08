@@ -47,13 +47,13 @@ def create_playlist(spot_obj, username, artists, week):
     shuffle(artists)
 
     for artist in artists:
-        result = spot_obj.search(artist, type='artist')
-        for item in result['artists']['items']:
-            if item['name'].lower() == artist.lower():
-                if item['name'].lower() not in dup_artists:
-                    i = 0
-                    dup_artists.add(item['name'].lower())
-                    a_id = item['id']
+        for item in spot_obj.search(artist, type='artist')['artists']['items']:
+            if item['name'].lower() == artist.lower() and \
+                    item['name'].lower() not in dup_artists:
+                i = 0
+                dup_artists.add(item['name'].lower())
+                a_id = item['id']
+                try:
                     while spot_obj.artist_top_tracks(
                             a_id)['tracks'][i]['artists'][0]['name'].lower() \
                             != artist.lower():
@@ -62,6 +62,8 @@ def create_playlist(spot_obj, username, artists, week):
                         a_id)['tracks'][i]['name'])
                     tracks.append(spot_obj.artist_top_tracks(
                         a_id)['tracks'][i]['id'])
+                except LookupError:
+                    continue
 
     spot_obj.user_playlist_add_tracks(username, new_playlist_id, tracks)
     print("success! done adding tracks to playlist")

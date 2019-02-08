@@ -4,6 +4,11 @@ random util functions
 import datetime
 from datetime import date
 
+def get_date(date_string):
+    '''
+    datetime object returner
+    '''
+    return datetime.datetime.strptime(date_string, "%Y-%m-%d").date()
 
 def get_week():
     '''
@@ -19,6 +24,12 @@ def get_today():
     return today's date
     '''
     return date.today()
+
+def get_three_days():
+    '''
+    good for weekends, not ideal, will fix later
+    '''
+    return date.today() + datetime.timedelta(3, 0)
 
 def get_next_week():
     '''
