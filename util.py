@@ -10,20 +10,19 @@ def get_date(date_string):
     '''
     return datetime.datetime.strptime(date_string, "%Y-%m-%d").date()
 
-def get_week():
+def get_title(location, count):
     '''
     get week string for playlist creation
     '''
-    today = get_today()
-    week = get_next_week()
-    return str(today.month) + "/" + str(today.day) + " –– " \
-        + str(week.month) + "/" + str(week.day)
+    start, end = get_days(count)
+    return str(start.month) + "/" + str(start.day) + " –– " \
+        + str(end.month) + "/" + str(end.day) + "in " + location
 
-def get_today():
+def get_days(end):
     '''
     return today's date
     '''
-    return date.today()
+    return date.today(), date.today() + datetime.timedelta(end, 0)
 
 def get_three_days():
     '''
