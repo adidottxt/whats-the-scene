@@ -12,6 +12,7 @@ API_KEY = config.SONGKICK_API_KEY
 # TO DO
 # Try location with IP address
 
+
 def get_events(location, start, end):
     '''
     wrapper function
@@ -67,8 +68,3 @@ def get_response(location_id, page_number):
         location_id, API_KEY)
     response = requests.get(request, params=parameters)
     return response.json()
-
-
-#if __name__ == '__main__':
-#    LOCATION_ID = get_location_id('philadelphia')
-#    print(get_events(LOCATION_ID, 'philadelphia', '2019-02-08', '2019-02-10'))

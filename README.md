@@ -9,5 +9,5 @@ This project is currently a work in progress.
 - <b>Spotify</b>
   * Ensure songs are not duplicated in a playlist
   * Ensure each playlist is of a certain size
-- <b>Songkick</b>
-  * Integrate Songkick when I receive my API key
+  * Pick songs from top songs at random (debatable feature)
+

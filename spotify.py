@@ -78,5 +78,5 @@ def get_playlist_id(spot_obj, username, playlist_name):
         if playlist['name'].lower() == playlist_name.lower():
             return playlist['id']
 
-    print("error: no playlist found")
+    print("no playlist found, creating playlist")
     return None
