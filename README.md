@@ -35,4 +35,4 @@ This project is currently a work in progress.
   * Ensure songs are not duplicated in a playlist
   * Ensure each playlist is of a certain size
   * Pick songs from top songs at random (this is a debatable feature)
-
+  * train + use binary classifier to enhance song selection
