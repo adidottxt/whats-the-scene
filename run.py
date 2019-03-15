@@ -1,6 +1,8 @@
 '''
 Running things
 '''
+import sys
+
 import config
 from spotify import login_to_spotify, create_playlist
 from util import get_days, get_title
@@ -14,10 +16,11 @@ if __name__ == '__main__':
     SPOTIFY_OBJECT = login_to_spotify(
         CLIENT_USERNAME, CLIENT_ID, CLIENT_SECRET)
 
-    COUNT = 2
+    COUNT = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+    CITY = sys.argv[1]
 
-    TITLE = get_title('philadelphia', COUNT)
+    TITLE = get_title(CITY, COUNT)
     START, END = get_days(COUNT)
 
-    ARTISTS = get_events('philadelphia', START, END)
+    ARTISTS = get_events(CITY, START, END)
     create_playlist(SPOTIFY_OBJECT, CLIENT_USERNAME, ARTISTS, TITLE)
